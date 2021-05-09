@@ -1,0 +1,131 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<p>Merge Score</p>
+
+<table align="center" border="0" cellpadding="1" cellspacing="1" style="margin-top:0px; width:100%">
+	<tbody>
+		<tr>
+			<td colspan="3">
+			<h2><span style="color:#ffffff"><span style="background-color:#000000">Merging Blackboard Gradebook with Other Score Reports</span></span></h2>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">Instructions:
+			<ol>
+				<li><span style="font-family:Georgia,serif">Download the grade book from Blackboard Grade Center with Work Offline option using comma as the separator, copy-paste the file content to the left textbox and parse the text (see 1st Parse button)</span></li>
+				<li><span style="font-family:Georgia,serif">Copy-paste/download a score report from the other software such as google form/github/zybooks, copy-paste the file content to the right textbox and the parse the text(see 2nd Parse button)</span></li>
+				<li><span style="font-family:Georgia,serif">Click the emerging Match button, and resolve possible mismatches and duplicates in the emerging dialog window</span></li>
+				<li><span style="font-family:Georgia,serif">On the heading of the second resulted table, decide the matching columns or set unwanted column&#39;s heading to blank (the emerging Null Heading button can help). Click the emerging Merge button next to the Match button.</span></li>
+				<li><span style="font-family:Georgia,serif">If the data are merged correctly, click the emerging CSV button under the merged table. This will generate a csv file format of merged data</span></li>
+				<li><span style="font-family:Georgia,serif">Copy-paste generated text inside the bottom textbox to override original downloaded file and upload the modified file back to Blackboard</span></li>
+				<li><span style="font-family:Georgia,serif">Optionally, for the convenience of transferring grades to the banner system, downloading file again(needs BB to do calculation) and parse again, you may use Swap Column to bring the Weighted Total or Final Grade column closer to student name column</span></li>
+			</ol>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<table align="center" border="0" cellpadding="1" cellspacing="1" style="margin-top:0px; width:100%">
+	<tbody>
+		<tr>
+			<td style="background-color:lightgray; text-align:left"><strong>CSV formated full or partial Gradebook downloaded from Blackboard</strong><br />
+			Course: <input /></td>
+			<td>&nbsp;</td>
+			<td style="background-color:lightgray; text-align:left"><strong>Score report copied from Google form, Github, zybooks or others</strong>
+			<table align="left" style="background-color:lightgray">
+				<tbody>
+					<tr>
+						<td><input value="View Tab" /></td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td><input type="checkbox" /></td>
+						<td>RegEx</td>
+						<td>&nbsp;</td>
+						<td><input size="8" /></td>
+						<td><input style="width:90px" type="button" value="Replace By" /></td>
+						<td><input size="8" /></td>
+						<td><input style="width:90px" type="button" value="Undo" /></td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-color:lightgray; border-style:solid; border-width:0px; text-align:left; vertical-align:top">
+			<form name="myform">&nbsp;</form>
+			<input type="file" /><textarea cols="120" name="inputtext" rows="4"></textarea> <input checked="checked" name="placement" type="radio" value="append" /> Add to Existing Text<br />
+			<input type="button" value="Add New Text" /><textarea name="outputtext" rows="20">&quot;Last Name&quot;,&quot;First Name&quot;,&quot;Username&quot;,&quot;Student ID&quot;,&quot;Last Access&quot;,&quot;Availability&quot;,&quot;recitation0129 [Total Pts: 1 Score] |561031&quot;
+&quot;Honter&quot;,&quot;Gred&quot;,&quot;dffg22@students.desu.edu&quot;,&quot;D10000001&quot;,&quot;2021-02-27 18:14:54&quot;,&quot;Yes&quot;,&quot;43.00&quot;
+&quot;Smith&quot;,&quot;Juan&quot;,&quot;qwer124@students.desu.edu&quot;,&quot;D10000002&quot;,&quot;2021-02-27 22:44:54&quot;,&quot;Yes&quot;,&quot;85.00&quot;
+</textarea></td>
+			<td>&nbsp;</td>
+			<td style="border-color:lightgray; border-style:solid; border-width:0px; text-align:left; vertical-align:top"><textarea required="required" rows="20">Last Name        First Name    email    item1     item2
+Sample    Student  samplestudent@desu.edu  70  80
+&quot;Honter&quot;  &quot;Gred&quot;  &quot;dffg22@students.desu.edu&quot;  40  50
+&quot;Honter&quot;   &quot;Gred&quot;  &quot;dffg22@students.desu.edu&quot;  45   67</textarea></td>
+		</tr>
+		<tr>
+			<td style="text-align:right">
+			<table style="width:100%">
+				<tbody>
+					<tr>
+						<td><input style="float:left; width:100px" type="button" value="Swap Column" /></td>
+						<td>Column Separator</td>
+						<td><select><option value="\t">Tab</option><option value=",">Comma</option></select></td>
+						<td><input name="parsebb" type="button" value="Parse" /></td>
+						<td><input style="float:right" type="button" value="Match" /></td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+			<td>&nbsp;</td>
+			<td style="text-align:center">
+			<table style="width:100%">
+				<tbody>
+					<tr>
+						<td><input style="float:left" type="button" value="Merge" /></td>
+						<td>Column Separator</td>
+						<td><select><option value="\t">Tab</option><option value=",">Comma</option><option value=";">Semicolon</option><option value="  ">2+ Spaces</option><option value=" ">1+ Spaces</option></select></td>
+						<td><input name="parsegoogle" type="button" value="Parse" /></td>
+						<td>
+						<table id="heading">
+							<tbody>
+								<tr>
+									<td>Curved=</td>
+									<td>&nbsp;</td>
+									<td><input size="7" value="x" /></td>
+									<td><input style="float:right; width:100px" type="button" value="Null Heading" /></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+		<tr>
+			<td style="vertical-align:top">
+			<div class="showing">Parsed gradebook will appear here</div>
+			</td>
+			<td style="vertical-align:top">&nbsp;</td>
+			<td style="vertical-align:top">
+			<div class="showing">Parsed report will appear here</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" style="text-align:center">
+			<div class="showing">Merged table will appear here</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" style="text-align:center">
+			<div class="showing">Merged CSV file will appear here</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="waterdrop">&nbsp;</div>
